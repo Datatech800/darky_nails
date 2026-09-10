@@ -7,8 +7,8 @@
    ============================================================ */
 @font-face {
   font-family: "Cinzel";
-  src: url("../Fonts/Cinzel/Cinzel-VariableFont_wght.ttf") format("truetype");
-  font-weight: 100 900;
+  src: url("../Fonts/Cinzel/static/Cinzel-Regular.ttf") format("truetype");
+  font-weight: normal;
   font-style: normal;
 }
 
@@ -259,6 +259,51 @@ body::before {
   box-shadow: 0 0 12px rgba(230, 0, 0, 0.8), 0 0 24px rgba(230, 0, 0, 0.4), 0 4px 20px rgba(0,0,0,0.3);
 }
 
+/* Botón "Crear Cuenta" (desktop): gris, junto al botón rojo */
+.nav-btn-cuenta {
+  font-size: 13px;
+  padding: 8px 16px;
+  background: #555557;
+  border-color: #555557;
+}
+
+.nav-btn-cuenta:hover {
+  background: #404042;
+  border-color: #404042;
+}
+
+/* Contenedor de los botones flotantes (solo mobile) */
+.nav-btn-flotantes {
+  display: none;
+}
+
+/* Botón "Crear Cuenta" flotante (mobile): mismo gris que el desktop */
+.nav-btn-flotantes #abre-registro-mobile,
+#abre-registro-mobile.nav-btn-abajo {
+  background: #555557;
+  border-color: #555557;
+}
+
+.nav-btn-flotantes #abre-registro-mobile:hover,
+#abre-registro-mobile.nav-btn-abajo:hover {
+  background: #404042;
+  border-color: #404042;
+}
+
+.nav-btn-flotantes #abre-registro-mobile.scrolled,
+#abre-registro-mobile.nav-btn-abajo.scrolled {
+  border-color: #999;
+  box-shadow: 0 0 12px rgba(160, 160, 160, 0.8), 0 0 24px rgba(160, 160, 160, 0.4), 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* Contenedor de botones del header desktop */
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 20px;
+}
+
 /* ============================================================
    5. HERO — VERSIÓN CLÁSICA
    (definiciones base; el carrusel activo las sobrescribe abajo)
@@ -282,7 +327,7 @@ body::before {
   left: 50%;
   width: 100vw;
   transform: translateX(-50%);
-  background: linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.7)), url("../image_darky/nails fondo2.jpg") center/cover no-repeat;
+  background: linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.7)), url("../image_darky/background_body.webp") center/cover no-repeat;
   z-index: 0;
 }
 
@@ -1246,11 +1291,32 @@ footer {
     display: none;
   }
 
+  .nav-cta {
+    display: none;
+  }
+
   .nav-btn-abajo {
     display: block;
     position: sticky;
     top: 12px;
     z-index: 1000;
+  }
+
+  .nav-btn-flotantes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 12px auto 0;
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+  }
+
+  .nav-btn-flotantes .nav-btn-abajo {
+    margin: 0;
+    position: static;
+    z-index: auto;
   }
 
   .nav-links li + li::before {
@@ -1369,4 +1435,293 @@ footer {
   .servicio-precio {
     margin-left: auto;
   }
+}
+
+/* ============================================================
+   17. MODAL CREAR CUENTA (registro de clientes)
+   ============================================================ */
+.modal-glass-box-registro {
+  max-width: 460px;
+}
+
+.modal-registro-sub {
+  color: #bbb;
+  font-size: 13px;
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.registro-mensaje {
+  min-height: 20px;
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.registro-mensaje.error {
+  color: #ff6b6b;
+}
+
+.registro-mensaje.ok {
+  color: #6bff9e;
+}
+
+/* ============================================================
+   18. MODAL LOGIN CLIENTE + CALENDARIO DE TURNOS
+   ============================================================ */
+.modal-login-info {
+  color: #bbb;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 14px;
+}
+
+.modal-login-link {
+  color: #db1634;
+  text-decoration: none;
+}
+
+.modal-login-link:hover {
+  text-decoration: underline;
+}
+
+.modal-glass-box-turnos {
+  max-width: 640px;
+}
+
+/* ── Tabla semanal de turnos (heredada de test_turnos, oscura) ── */
+.calendario-turnos {
+  margin-top: 8px;
+}
+
+.barra-semana {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto 8px;
+  flex-wrap: wrap;
+}
+
+.titulos-semana {
+  text-align: center;
+}
+
+.tp-titulo {
+  font-family: "Cinzel", serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.tp-subtitulo {
+  color: #999;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.tp-hoy-wrap {
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.btn-nav {
+  font-family: "Cinzel", serif;
+  font-size: 14px;
+  padding: 6px 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.btn-nav-dark {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.btn-nav-dark:hover {
+  border-color: #db1634;
+  color: #fff;
+}
+
+.tp-tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tp-tabla th,
+.tp-tabla td {
+  padding: 8px 10px;
+  border: 1px solid #333;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #ddd;
+}
+
+.tp-tabla th {
+  font-family: "Cinzel", serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #bbb;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tp-tabla td:first-child {
+  text-transform: none;
+}
+
+.hora {
+  display: inline-block;
+  padding: 4px 6px;
+  margin: 2px;
+  border: 1px solid #666;
+  border-radius: 4px;
+  font-size: 12px;
+  min-width: 46px;
+  color: #ccc;
+}
+
+.hora.ocupado {
+  background: rgba(219, 22, 52, 0.2);
+  color: #777;
+  border-color: #a00;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+.hora.disponible {
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  color: #fff;
+}
+
+.hora.disponible:hover {
+  background: #db1634;
+  border-color: #db1634;
+}
+
+/* ── Resumen del turno a confirmar ── */
+.turno-resumen {
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+
+.turno-resumen-fila {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #bbb;
+  padding: 4px 0;
+}
+
+.turno-resumen-fila span {
+  color: #777;
+}
+
+.turno-resumen-fila strong {
+  color: #fff;
+  text-align: right;
+}
+
+.turno-confirmar-btn {
+  width: 100%;
+  padding: 14px;
+  background: #db1634;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: "Cinzel", serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.turno-confirmar-btn:hover {
+  background: #b00f28;
+}
+
+.modal-glass-select {
+  width: 100%;
+  padding: 12px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  outline: none;
+}
+
+.modal-glass-select:focus {
+  border-color: #db1634;
+}
+
+/* Botón "Reservar este servicio" (modales de detalle) */
+.servicio-reservar-btn {
+  width: 100%;
+  margin-top: 18px;
+  padding: 12px;
+  background: #db1634;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: "Cinzel", serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.servicio-reservar-btn:hover {
+  background: #b00f28;
+}
+
+.modal-glass-box-registro form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal-glass-box-registro .input-group {
+  margin-bottom: 0;
+}
+
+.modal-glass-box-registro button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background: #db1634;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: "Cinzel", serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.25s;
+  margin-top: 6px;
+}
+
+.modal-glass-box-registro button[type="submit"]:hover {
+  background: #b00f28;
+}
+
+/* Honeypot anti-bots: invisible para humanos, visible para bots */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
