@@ -10,7 +10,8 @@ Landing page para un salón de uñas ficticio, tal landing page está creada com
 ## Preview
 | Desktop | Mobile |
 |---------|--------|
-|<img width="1904" height="948" alt="img_desktop" src="https://github.com/user-attachments/assets/bc22858c-4f9f-458d-bd39-18d74f84fa5b" />|<img width="739" height="1419" alt="img1_responsive" src="https://github.com/user-attachments/assets/f7765f6d-d410-4422-b522-6c6fba1a52a9" />
+|<img width="1920" height="936" alt="darky_image1" src="https://github.com/user-attachments/assets/47cd0f96-470e-40f9-94c1-e8bf69d41aff" />|<img width="828" height="1599" alt="mobile_darky" src="https://github.com/user-attachments/assets/a368c5c3-8def-49da-a921-da41eb05cb51" />
+
 
 <h2>Tecnologías utilizadas ⚙</h2>
 
